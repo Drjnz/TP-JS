@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de tâches</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+  <h1>Todo List – Gestion simple</h1>
+  <p>Ajoutez, affichez, modifiez et supprimez des tâches. Stockage local automatique.</p>
+</header>
+
+<main class="layout">
+  <section class="card" aria-labelledby="form-title">
+    <form id="todo-form">
+      <h2 id="form-title" style="margin:6px 4px 6px">Nouvelle tâche</h2>
+      <div class="row">
+        <div>
+          <label for="title">Titre <span aria-hidden="true">*</span></label>
+          <input id="title" name="title" type="text" placeholder="Ex: Appeler le client" required="">
+        </div>
+        <div>
+          <label for="category">Catégorie</label>
+          <select id="category" name="category">
+            <option value="Général">Général</option>
+            <option value="Travail">Travail</option>
+            <option value="Perso">Perso</option>
+            <option value="Études">Études</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Détails, liens, étapes…"></textarea>
+      </div>
+      <div class="actions">
+        <button type="reset">Réinitialiser</button>
+        <button class="btn-primary" id="add" type="button">Ajouter</button>
+      </div>
+      <input type="hidden" id="edit-id" value="">
+    </form>
+  </section>
+
+  <section class="card" aria-labelledby="list-title">
+    <div class="toolbar">
+      <h2 id="list-title" style="margin:0">Mes tâches</h2>
+      <div class="filters">
+        <label class="sr-only" for="filter">Filtrer par catégorie</label>
+        <select id="filter" class="filter">
+          <option value="">Toutes catégories</option>
+          <option>Général</option>
+          <option>Travail</option>
+          <option>Perso</option>
+          <option>Études</option>
+        </select>
+      </div>
+    </div>
+    <div id="list" class="list" aria-live="polite">
+      <div class="todo" data-id="fjv0sl3houd2">
+        <h3>Terminer TP Javascript</h3>
+        <div class="meta">
+          <span class="chip">Général</span>
+          <span>créé le 21/11/2025 16:58:46</span>
+        </div>
+        <div class="button-row">
+          <button class="btn-secondary" id="print">Afficher</button>
+          <button class="btn-warning" id="edit">Modifier</button>
+          <button class="btn-danger" id="del">Supprimer</button>
+        </div>     
+      </div>
+        <div id="ok"></div>
+    </div>
+  </section>
+</main>
+
+<dialog id="descDialog" aria-labelledby="dialog-title">
+  <div class="dialog-header">
+    <strong id="dialog-title">Détails</strong>
+    <button id="closeDialog" title="Fermer">✕</button>
+  </div>
+  <div id="pop">
+    <h3 id="dialogTaskTitle" style="margin-top:0"></h3>
+    <p class="meta"><span id="dialogCategory" class="chip"></span></p>
+    <div id="dialogDescription" style="white-space: pre-wrap; line-height:1.6"></div>
+  </div>
+</dialog>
+<script src="script.js"></script>  
+</body>
+</html>
